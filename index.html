@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genesis Tech | Premium Digital Solutions</title>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
     <style>
         :root {
             --primary: #00eaff;
@@ -24,7 +25,7 @@
             scroll-behavior: smooth;
         }
 
-        /* NAVBAR */
+        /* NAVIGATION */
         nav {
             background: rgba(2, 11, 26, 0.9);
             padding: 20px;
@@ -38,278 +39,93 @@
 
         nav a {
             color: var(--text-main);
-            margin: 0 20px;
+            margin: 0 15px;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
+            transition: 0.3s;
         }
 
-        nav a:hover {
-            color: var(--primary);
-        }
+        nav a:hover { color: var(--primary); }
 
         /* HERO */
         .hero {
             text-align: center;
-            padding: 160px 20px;
+            padding: 140px 20px;
             background: radial-gradient(circle at top, #1e293b 0%, #020b1a 100%);
         }
 
-        .hero h1 {
-            font-size: clamp(40px, 8vw, 72px);
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-            font-weight: 800;
-        }
+        .hero h1 { font-size: clamp(40px, 8vw, 72px); margin-bottom: 20px; font-weight: 800; letter-spacing: -2px; }
 
-        .hero p {
-            font-size: 20px;
-            color: var(--text-muted);
-            max-width: 750px;
-            margin: 0 auto 40px;
-        }
+        /* SECTIONS */
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        h2 { font-size: 32px; margin-bottom: 40px; }
 
-        .hero button {
-            padding: 18px 45px;
-            border: none;
-            background: var(--primary);
-            color: #000;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero button:hover {
-            background: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 234, 255, 0.3);
-        }
-
-        /* SECTIONS GENERAL */
-        section {
-            padding: 100px 20px;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: 36px;
-            margin-bottom: 60px;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        /* SERVICES GRID */
+        /* GRID */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
-        .service-box {
+        .card {
             background: var(--card-bg);
-            padding: 45px 30px;
+            padding: 40px 30px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s ease;
             text-align: left;
+            transition: 0.3s;
         }
 
-        .service-box:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            background: #1f2937;
-        }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        .service-box h3 {
-            color: var(--primary);
-            margin: 0 0 15px 0;
-            font-size: 22px;
-        }
-
-        .service-box p {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        /* GALLERY SECTION */
-        .gallery {
-            background: var(--bg-dark);
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-
-        .gallery-item {
-            height: 250px;
-            background: #1e293b;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .gallery-overlay {
-            position: absolute;
+        /* MODAL FOR ABOUT/TERMS */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
             inset: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            text-align: left;
-            opacity: 0;
-            transition: 0.4s;
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            overflow-y: auto;
         }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* PRICING */
-        .pricing-section {
-            background: var(--bg-navy);
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-
-        .price-box {
+        .modal-content {
             background: var(--card-bg);
-            padding: 50px 30px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--primary);
             position: relative;
-            display: flex;
-            flex-direction: column;
         }
+        .close { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: var(--primary); }
 
-        .featured-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: #000;
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .price {
-            font-size: 48px;
-            font-weight: 800;
-            margin: 20px 0;
-        }
-
-        .price-box p {
-            color: var(--text-muted);
-            margin: 12px 0;
-            font-size: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 12px;
-        }
-
-        .price-box button {
-            margin-top: auto;
+        /* PRICING BUTTONS */
+        .price { font-size: 42px; font-weight: 800; margin: 20px 0; color: white; }
+        .buy-btn {
+            width: 100%;
             padding: 15px;
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            background: var(--primary);
+            color: black;
+            border: none;
             border-radius: 10px;
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
         }
-
-        .price-box button:hover {
-            background: var(--primary);
-            color: black;
-        }
-
-        /* CONTACT FORM */
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        input, textarea {
-            width: 100%;
-            max-width: 600px;
-            padding: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.03);
-            color: white;
-            font-size: 16px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .contact button {
-            margin-top: 10px;
-            padding: 16px 50px;
-            background: var(--primary);
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        /* FOOTER */
-        footer {
-            background: var(--bg-navy);
-            padding: 60px 20px;
-            color: var(--text-muted);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-        }
+        .buy-btn:hover { background: white; }
 
         /* WHATSAPP */
         .whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: 0.3s;
+            position: fixed; bottom: 30px; right: 30px; background: #25D366;
+            width: 60px; height: 60px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; z-index: 1000;
         }
+        .whatsapp svg { width: 32px; fill: white; }
 
-        .whatsapp:hover { transform: scale(1.1); }
-        .whatsapp svg { width: 32px; height: 32px; fill: white; }
-
+        footer { padding: 60px 20px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; color: var(--text-muted); }
+        .footer-links a { color: var(--text-muted); margin: 0 10px; text-decoration: none; font-size: 13px; }
+        .footer-links a:hover { color: var(--primary); }
     </style>
 </head>
 
@@ -317,121 +133,96 @@
 
     <nav>
         <a href="#">Home</a>
+        <a href="javascript:void(0)" onclick="openModal('aboutModal')">About</a>
         <a href="#services">Services</a>
-        <a href="#portfolio">Work</a>
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <section class="hero">
         <h1>Genesis Tech</h1>
-        <p>Providing high-performance web development, mobile applications, and enterprise software systems tailored to your business needs.</p>
-        <button onclick="location.href='#services'">Explore Solutions</button>
+        <p>Providing high-performance web development and enterprise software systems.</p>
+        <button onclick="location.href='#pricing'" style="padding: 18px 45px; border-radius: 50px; background: var(--primary); font-weight: 700; cursor: pointer;">Get Started</button>
     </section>
 
-    <section id="services">
-        <h2>Expert Services</h2>
+    <section id="pricing">
+        <h2>Service Checkout</h2>
         <div class="grid-container">
-            <div class="service-box">
-                <h3>Web Development</h3>
-                <p>High-end corporate websites and scalable e-commerce platforms designed for conversion.</p>
+            <div class="card">
+                <h3>Basic Website</h3>
+                <div class="price">₵800</div>
+                <p style="color: var(--text-muted)">Corporate profile, responsive design, and SEO basics.</p>
+                <button class="buy-btn" onclick="payWithPaystack(800, 'Basic Website')">Order Now</button>
             </div>
-            <div class="service-box">
-                <h3>Mobile Apps</h3>
-                <p>Custom Android and iOS applications built with seamless user experiences.</p>
+            <div class="card" style="border-color: var(--primary)">
+                <h3>Professional</h3>
+                <div class="price">₵1500</div>
+                <p style="color: var(--text-muted)">Custom Admin Panel, Database integration, and advanced UI.</p>
+                <button class="buy-btn" onclick="payWithPaystack(1500, 'Professional Plan')">Order Now</button>
             </div>
-            <div class="service-box">
-                <h3>Software Systems</h3>
-                <p>Advanced digital infrastructure including banking software and school portals.</p>
-            </div>
-            <div class="service-box">
-                <h3>App Vouchers</h3>
-                <p>Secure online admission vouchers and digital application platforms for institutions.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="gallery">
-        <h2>Recent Work</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ School System Portal ]</div>
-                <div class="gallery-overlay">
-                    <h4 style="margin:0">SMS Portal</h4>
-                    <p style="margin:5px 0 0; font-size:12px; color: var(--primary)">Management System</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ Global Store Platform ]</div>
-                <div class="gallery-overlay">
-                    <h4 style="margin:0">Global Store</h4>
-                    <p style="margin:5px 0 0; font-size:12px; color: var(--primary)">Web Development</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ FinTech Mobile App ]</div>
-                <div class="gallery-overlay">
-                    <h4 style="margin:0">FinTech App</h4>
-                    <p style="margin:5px 0 0; font-size:12px; color: var(--primary)">iOS & Android</p>
-                </div>
+            <div class="card">
+                <h3>Mobile App</h3>
+                <div class="price">₵3000</div>
+                <p style="color: var(--text-muted)">Cross-platform iOS & Android development with API support.</p>
+                <button class="buy-btn" onclick="payWithPaystack(3000, 'Mobile App')">Order Now</button>
             </div>
         </div>
     </section>
 
-    <div class="pricing-section">
-        <section id="pricing">
-            <h2>Strategic Pricing</h2>
-            <div class="grid-container">
-                <div class="price-box">
-                    <h3>Basic Website</h3>
-                    <div class="price">₵800</div>
-                    <p>Business Focused</p>
-                    <p>Responsive Layout</p>
-                    <p>Standard Contact Form</p>
-                    <button>Get Started</button>
-                </div>
-                <div class="price-box" style="border-color: var(--primary);">
-                    <div class="featured-badge">MOST POPULAR</div>
-                    <h3>Professional</h3>
-                    <div class="price">₵1500</div>
-                    <p>Modern Creative Design</p>
-                    <p>Custom Admin Dashboard</p>
-                    <p>Full Database Integration</p>
-                    <button style="background: var(--primary); color: black;">Get Started</button>
-                </div>
-                <div class="price-box">
-                    <h3>Mobile App</h3>
-                    <div class="price">₵3000+</div>
-                    <p>Native/Cross-platform</p>
-                    <p>Advanced API Integration</p>
-                    <p>Store Deployment Support</p>
-                    <button>Get Started</button>
-                </div>
-            </div>
-        </section>
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+            <h2>About Genesis Tech</h2>
+            <p>Genesis Tech, engineered by Obeng Emmanuel, is a premier technology firm specializing in digital infrastructure. We build scalable school portals, banking systems, and high-conversion e-commerce platforms.</p>
+        </div>
     </div>
 
-    <section id="contact" class="contact">
-        <h2>Start Your Project</h2>
-        <form>
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <textarea rows="5" placeholder="Provide a brief overview of your project requirements"></textarea>
-            <button type="submit">Submit Request</button>
-        </form>
-        <div style="margin-top: 40px;">
-            <p><strong>Email:</strong> nhyirabagenesis@gmail.com</p>
-            <p><strong>Phone:</strong> 0246063398</p>
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('termsModal')">&times;</span>
+            <h2>Terms & Privacy</h2>
+            <p><strong>Terms:</strong> All projects require a 50% commitment fee. Delivery timelines vary by project scope.</p>
+            <p><strong>Privacy:</strong> We do not store payment details. All transactions are handled securely via Paystack.</p>
         </div>
-    </section>
+    </div>
 
     <footer>
         <p>© 2026 Genesis Tech | Engineered by Obeng Emmanuel</p>
+        <div class="footer-links">
+            <a href="javascript:void(0)" onclick="openModal('aboutModal')">About Us</a>
+            <a href="javascript:void(0)" onclick="openModal('termsModal')">Terms of Service</a>
+            <a href="javascript:void(0)" onclick="openModal('termsModal')">Privacy Policy</a>
+        </div>
     </footer>
 
     <a class="whatsapp" href="https://wa.me/233246063398" target="_blank">
         <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.4 2.4-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.3 5.7 23.7 9.1 31.7 11.7 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </a>
+
+    <script>
+        function openModal(id) { document.getElementById(id).style.display = 'block'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+        function payWithPaystack(amt, plan) {
+            let userEmail = prompt("Please enter your email to proceed with " + plan + ":");
+            if(!userEmail) return;
+
+            let handler = PaystackPop.setup({
+                key: 'pk_live_1b05eea2521cd39d8f757be5bff54da8bca1ac43', 
+                email: userEmail,
+                amount: amt * 100, // Amount in pesewas
+                currency: 'GHS',
+                ref: 'GT-' + Math.floor((Math.random() * 1000000000) + 1),
+                callback: function(response) {
+                    alert('Payment successful! Ref: ' + response.reference);
+                },
+                onClose: function() {
+                    alert('Transaction cancelled.');
+                }
+            });
+            handler.openIframe();
+        }
+    </script>
 
 </body>
 </html>
