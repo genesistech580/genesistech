@@ -61,6 +61,28 @@
         section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
         h2 { font-size: 32px; margin-bottom: 40px; }
 
+        /* CONTACT FORM */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background: #1f2937;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            box-sizing: border-box;
+        }
+
         /* GRID */
         .grid-container {
             display: grid;
@@ -79,7 +101,7 @@
 
         .card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        /* MODAL FOR ABOUT/TERMS */
+        /* MODAL */
         .modal {
             display: none;
             position: fixed;
@@ -100,7 +122,7 @@
         }
         .close { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: var(--primary); }
 
-        /* PRICING BUTTONS */
+        /* BUTTONS */
         .price { font-size: 42px; font-weight: 800; margin: 20px 0; color: white; }
         .buy-btn {
             width: 100%;
@@ -134,7 +156,6 @@
     <nav>
         <a href="#">Home</a>
         <a href="javascript:void(0)" onclick="openModal('aboutModal')">About</a>
-        <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -142,7 +163,7 @@
     <section class="hero">
         <h1>Genesis Tech</h1>
         <p>Providing high-performance web development and enterprise software systems.</p>
-        <button onclick="location.href='#pricing'" style="padding: 18px 45px; border-radius: 50px; background: var(--primary); font-weight: 700; cursor: pointer;">Get Started</button>
+        <button onclick="location.href='#pricing'" style="padding: 18px 45px; border-radius: 50px; background: var(--primary); font-weight: 700; cursor: pointer; border:none;">Get Started</button>
     </section>
 
     <section id="pricing">
@@ -166,6 +187,24 @@
                 <p style="color: var(--text-muted)">Cross-platform iOS & Android development with API support.</p>
                 <button class="buy-btn" onclick="payWithPaystack(3000, 'Mobile App')">Order Now</button>
             </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form action="https://formspree.io/f/nhyirabagenesis@gmail.com" method="POST">
+                <label>Your Name</label>
+                <input type="text" name="name" required placeholder="John Doe">
+                
+                <label>Your Email</label>
+                <input type="email" name="_replyto" required placeholder="john@example.com">
+                
+                <label>Message</label>
+                <textarea name="message" rows="5" required placeholder="Tell us about your project..."></textarea>
+                
+                <button type="submit" class="buy-btn">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -210,7 +249,7 @@
             let handler = PaystackPop.setup({
                 key: 'pk_live_1b05eea2521cd39d8f757be5bff54da8bca1ac43', 
                 email: userEmail,
-                amount: amt * 100, // Amount in pesewas
+                amount: amt * 100, 
                 currency: 'GHS',
                 ref: 'GT-' + Math.floor((Math.random() * 1000000000) + 1),
                 callback: function(response) {
@@ -223,6 +262,5 @@
             handler.openIframe();
         }
     </script>
-
 </body>
 </html>
