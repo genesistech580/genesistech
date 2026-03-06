@@ -1,85 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Genesis Tech</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 body{
-font-family: Arial, sans-serif;
+font-family: Arial;
 margin:0;
-background:#f4f6f9;
-text-align:center;
+background:#f4f4f4;
 }
 
 header{
 background:#0f172a;
 color:white;
-padding:40px 20px;
+text-align:center;
+padding:60px 20px;
 }
 
-h1{
-margin:0;
-font-size:40px;
+nav{
+background:#1e293b;
+text-align:center;
+padding:15px;
 }
 
-.tagline{
-font-size:18px;
-opacity:0.8;
+nav a{
+color:white;
+margin:0 20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#3b82f6;
 }
 
 section{
 padding:60px 20px;
+text-align:center;
 }
 
-.btn{
-display:inline-block;
-padding:12px 25px;
-background:#2563eb;
-color:white;
-text-decoration:none;
-border-radius:6px;
-margin-top:20px;
+.services{
+background:white;
+}
+
+.projects{
+background:#f4f4f4;
+}
+
+.card{
+background:white;
+padding:20px;
+margin:20px auto;
+width:300px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 footer{
 background:#0f172a;
-color:#aaa;
+color:white;
+text-align:center;
 padding:20px;
-font-size:14px;
+}
+
+button{
+background:#3b82f6;
+border:none;
+color:white;
+padding:12px 25px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2563eb;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
 <h1>Genesis Tech</h1>
-<p class="tagline">Building Smart Digital Solutions</p>
+<p>Building Smart Digital Solutions</p>
 </header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Projects</a>
+<a href="#">Contact</a>
+</nav>
+
+<section>
+<h2>Welcome</h2>
+<p>
+Genesis Tech is a technology company focused on building modern digital solutions
+including banking systems, business platforms and web applications.
+</p>
+
+<button>Explore Projects</button>
+</section>
+
+<section class="services">
+
+<h2>Our Services</h2>
+
+<div class="card">
+<h3>Banking Systems</h3>
+<p>Secure banking software for financial institutions.</p>
+</div>
+
+<div class="card">
+<h3>Business Platforms</h3>
+<p>Custom systems that help businesses manage operations.</p>
+</div>
+
+<div class="card">
+<h3>Web Applications</h3>
+<p>Modern websites and web apps for companies.</p>
+</div>
+
+</section>
+
+<section class="projects">
+
+<h2>Our Projects</h2>
+
+<div class="card">
+<h3>Banking System</h3>
+<p>A desktop banking application built with VB.NET.</p>
+</div>
+
+<div class="card">
+<h3>Shea-Chain</h3>
+<p>Blockchain based shea butter supply chain system.</p>
+</div>
+
+<div class="card">
+<h3>Church Management</h3>
+<p>System for managing members and tithes.</p>
+</div>
+
+</section>
 
 <section>
 
-<h2>Welcome</h2>
+<h2>Contact</h2>
 
-<p>
-Genesis Tech is a technology company focused on building modern digital
-solutions including banking systems, business platforms and web applications.
-</p>
-
-<a href="#" class="btn">Explore Projects</a>
+<p>Email: genesistech@example.com</p>
+<p>Location: Ghana</p>
 
 </section>
 
 <footer>
 
-© 2026 Genesis Tech. All Rights Reserved.
+<p>© 2026 Genesis Tech. All Rights Reserved.</p>
 
 </footer>
 
