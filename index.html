@@ -1,339 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis Tech | Premium Digital Solutions</title>
+    <style>
+        :root {
+            --primary: #00eaff;
+            --primary-hover: #00c8db;
+            --bg-dark: #0b1120;
+            --bg-navy: #020b1a;
+            --card-bg: #111827;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-<title>Genesis Tech</title>
+        /* NAVBAR */
+        nav {
+            background: rgba(2, 11, 26, 0.95);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-<style>
+        nav a {
+            color: var(--text-main);
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
 
-body{
-margin:0;
-font-family:Arial;
-background:#0b1120;
-color:white;
-}
+        nav a:hover {
+            color: var(--primary);
+        }
 
-/* NAVBAR */
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 140px 20px;
+            background: radial-gradient(circle at top, #1e293b 0%, #020b1a 100%);
+        }
 
-nav{
-background:#020b1a;
-padding:15px;
-text-align:center;
-position:sticky;
-top:0;
-}
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 64px);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            font-weight: 800;
+        }
 
-nav a{
-color:white;
-margin:0 25px;
-text-decoration:none;
-font-size:18px;
-}
+        .hero p {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
 
-nav a:hover{
-color:#00eaff;
-}
+        .hero button {
+            padding: 16px 40px;
+            border: none;
+            background: var(--primary);
+            color: #000;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-/* HERO */
+        .hero button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 234, 255, 0.2);
+        }
 
-.hero{
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(#020b1a,#0b1120);
-}
+        /* SECTIONS GENERAL */
+        section {
+            padding: 100px 20px;
+            text-align: center;
+        }
 
-.hero h1{
-font-size:50px;
-}
+        h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
 
-.hero p{
-font-size:20px;
-color:#a0aec0;
-}
+        /* SERVICES */
+        .service-box {
+            display: inline-block;
+            vertical-align: top;
+            width: 280px;
+            background: var(--card-bg);
+            margin: 15px;
+            padding: 40px 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
 
-.hero button{
-padding:15px 35px;
-border:none;
-background:#00eaff;
-color:black;
-font-size:18px;
-border-radius:5px;
-cursor:pointer;
-}
+        .service-box:hover {
+            transform: translateY(-12px);
+            background: #1f2937;
+            border-color: var(--primary);
+        }
 
-.hero button:hover{
-background:white;
-}
+        .service-box h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 20px;
+        }
 
-/* SERVICES */
+        .service-box p {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
 
-.services{
-padding:80px 20px;
-text-align:center;
-}
+        /* GALLERY SECTION */
+        .gallery {
+            background: var(--bg-dark);
+        }
 
-.services h2{
-font-size:35px;
-margin-bottom:50px;
-}
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.service-box{
-display:inline-block;
-width:280px;
-background:#111827;
-margin:15px;
-padding:30px;
-border-radius:10px;
-transition:0.3s;
-}
+        .gallery-item {
+            width: 350px;
+            height: 250px;
+            background: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
 
-.service-box:hover{
-transform:translateY(-10px);
-background:#1f2937;
-}
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 20px;
+            text-align: left;
+            opacity: 0;
+            transition: 0.3s;
+        }
 
-.service-box h3{
-color:#00eaff;
-}
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
 
-/* PRICING */
+        /* PRICING */
+        .pricing {
+            background: var(--bg-navy);
+        }
 
-.pricing{
-padding:80px 20px;
-text-align:center;
-background:#020b1a;
-}
+        .price-box {
+            display: inline-block;
+            vertical-align: top;
+            width: 300px;
+            background: var(--card-bg);
+            margin: 15px;
+            padding: 45px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
 
-.price-box{
-display:inline-block;
-width:280px;
-background:#111827;
-margin:15px;
-padding:30px;
-border-radius:10px;
-}
+        .featured-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: black;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+        }
 
-.price-box h3{
-color:#00eaff;
-}
+        .price {
+            font-size: 42px;
+            font-weight: 800;
+            margin: 20px 0;
+        }
 
-.price{
-font-size:35px;
-margin:15px 0;
-}
+        .price-box p {
+            color: var(--text-muted);
+            margin: 10px 0;
+            font-size: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+        }
 
-.price-box button{
-padding:12px 25px;
-background:#00eaff;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
+        .price-box button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-/* CONTACT */
+        .price-box button:hover {
+            background: var(--primary);
+            color: black;
+        }
 
-.contact{
-padding:80px 20px;
-text-align:center;
-}
+        /* CONTACT */
+        input, textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: #1f2937;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
 
-input, textarea{
-width:80%;
-max-width:500px;
-padding:12px;
-margin:10px;
-border:none;
-border-radius:5px;
-}
+        .contact button {
+            padding: 15px 40px;
+            background: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
 
-.contact button{
-padding:12px 25px;
-background:#00eaff;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
+        /* FOOTER */
+        footer {
+            background: var(--bg-navy);
+            padding: 40px 20px;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+        }
 
-/* FOOTER */
-
-footer{
-background:#020b1a;
-text-align:center;
-padding:20px;
-color:#aaa;
-}
-
-/* WHATSAPP BUTTON */
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 18px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
-}
-
-</style>
-
+        /* WHATSAPP */
+        .whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-<nav>
+    <section class="hero">
+        <h1>Genesis Tech</h1>
+        <p>Providing high-performance web development, mobile applications, and enterprise software systems tailored to your business needs.</p>
+        <button onclick="location.href='#services'">Explore Solutions</button>
+    </section>
 
-<a href="#">Home</a>
-<a href="#services">Services</a>
-<a href="#pricing">Pricing</a>
-<a href="#contact">Contact</a>
+    <section id="services" class="services">
+        <h2>Expert Services</h2>
+        <div class="service-box">
+            <h3>Website Development</h3>
+            <p>High-end corporate websites and scalable e-commerce platforms designed for conversion.</p>
+        </div>
+        <div class="service-box">
+            <h3>Mobile App Development</h3>
+            <p>Custom Android and iOS applications built with seamless user experiences.</p>
+        </div>
+        <div class="service-box">
+            <h3>Software Systems</h3>
+            <p>Advanced digital infrastructure including banking software and school portals.</p>
+        </div>
+        <div class="service-box">
+            <h3>Application Vouchers</h3>
+            <p>Secure online admission vouchers and digital application platforms for institutions.</p>
+        </div>
+    </section>
 
-</nav>
+    <section id="portfolio" class="gallery">
+        <h2>Recent Work</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ School System Preview ]</div>
+                <div class="gallery-overlay">
+                    <h4 style="margin:0">SMS Portal</h4>
+                    <p style="margin:5px 0 0; font-size:12px; color: var(--primary)">Management System</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ E-Commerce Preview ]</div>
+                <div class="gallery-overlay">
+                    <h4 style="margin:0">Global Store</h4>
+                    <p style="margin:5px 0 0; font-size:12px; color: var(--primary)">Web Development</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ Mobile App Preview ]</div>
+                <div class="gallery-overlay">
+                    <h4 style="margin:0">FinTech App</h4>
+                    <p style="margin:5px 0 0; font-size:12px; color: var(--primary)">iOS & Android</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- HERO -->
+    <section id="pricing" class="pricing">
+        <h2>Strategic Pricing</h2>
+        <div class="price-box">
+            <h3>Basic Website</h3>
+            <div class="price">₵800</div>
+            <p>Business Focused</p>
+            <p>Responsive Layout</p>
+            <p>Standard Contact Form</p>
+            <button>Get Started</button>
+        </div>
+        <div class="price-box" style="border-color: var(--primary);">
+            <div class="featured-badge">MOST POPULAR</div>
+            <h3>Professional</h3>
+            <div class="price">₵1500</div>
+            <p>Modern Creative Design</p>
+            <p>Custom Admin Dashboard</p>
+            <p>Full Database Integration</p>
+            <button style="background: var(--primary); color: black;">Get Started</button>
+        </div>
+        <div class="price-box">
+            <h3>Mobile App</h3>
+            <div class="price">₵3000+</div>
+            <p>Native/Cross-platform</p>
+            <p>Advanced API Integration</p>
+            <p>Store Deployment Support</p>
+            <button>Get Started</button>
+        </div>
+    </section>
 
-<section class="hero">
+    <section id="contact" class="contact">
+        <h2>Start Your Project</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required><br>
+            <input type="email" placeholder="Email Address" required><br>
+            <textarea rows="5" placeholder="Provide a brief overview of your project requirements"></textarea><br>
+            <button type="submit">Submit Request</button>
+        </form>
+        <p><strong>Email:</strong> nhyirabagenesis@gmail.com</p>
+        <p><strong>Phone:</strong> 0246063398</p>
+    </section>
 
-<h1>Genesis Tech</h1>
+    <footer>
+        <p>© 2026 Genesis Tech | Engineered by Obeng Emmanuel</p>
+    </footer>
 
-<p>Professional Websites, Mobile Apps & Digital Solutions</p>
-
-<button onclick="location.href='#services'">View Services</button>
-
-</section>
-
-<!-- SERVICES -->
-
-<section id="services" class="services">
-
-<h2>Our Services</h2>
-
-<div class="service-box">
-<h3>Website Development</h3>
-<p>Professional business, portfolio and ecommerce websites.</p>
-</div>
-
-<div class="service-box">
-<h3>Mobile App Development</h3>
-<p>Android and iOS mobile apps for businesses and startups.</p>
-</div>
-
-<div class="service-box">
-<h3>Software Systems</h3>
-<p>Banking systems, school systems and custom software.</p>
-</div>
-
-<div class="service-box">
-<h3>Application Vouchers</h3>
-<p>Online admission vouchers and digital application platforms.</p>
-</div>
-
-</section>
-
-<!-- PRICING -->
-
-<section id="pricing" class="pricing">
-
-<h2>Service Pricing</h2>
-
-<div class="price-box">
-
-<h3>Basic Website</h3>
-
-<div class="price">₵800</div>
-
-<p>Business Website</p>
-<p>Responsive Design</p>
-<p>Contact Form</p>
-
-<button>Order</button>
-
-</div>
-
-<div class="price-box">
-
-<h3>Professional Website</h3>
-
-<div class="price">₵1500</div>
-
-<p>Modern Design</p>
-<p>Admin Dashboard</p>
-<p>Database Integration</p>
-
-<button>Order</button>
-
-</div>
-
-<div class="price-box">
-
-<h3>Mobile App</h3>
-
-<div class="price">₵3000+</div>
-
-<p>Android App</p>
-<p>API Integration</p>
-<p>Full Deployment</p>
-
-<button>Order</button>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-<h2>Request a Project</h2>
-
-<form>
-
-<input type="text" placeholder="Your Name" required>
-
-<br>
-
-<input type="email" placeholder="Your Email" required>
-
-<br>
-
-<textarea rows="5" placeholder="Describe your project"></textarea>
-
-<br>
-
-<button type="submit">Send Request</button>
-
-</form>
-
-<p>Email: nhyirabagenesis@gmail.com</p>
-
-<p>Phone: 0246063398</p>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<p>© 2026 Genesis Tech | Built by Obeng Emmanuel</p>
-
-</footer>
-
-<!-- WHATSAPP -->
-
-<a class="whatsapp"
-href="https://wa.me/233246063398"
-target="_blank">
-
-💬
-
-</a>
+    <a class="whatsapp" href="https://wa.me/233246063398" target="_blank">
+        <svg style="width:30px; height:30px" fill="currentColor" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.4 2.4-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.3 5.7 23.7 9.1 31.7 11.7 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    </a>
 
 </body>
 </html>
