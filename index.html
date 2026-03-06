@@ -26,13 +26,13 @@
 
         /* NAVBAR */
         nav {
-            background: rgba(2, 11, 26, 0.95);
+            background: rgba(2, 11, 26, 0.9);
             padding: 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -53,32 +53,32 @@
         /* HERO */
         .hero {
             text-align: center;
-            padding: 140px 20px;
+            padding: 160px 20px;
             background: radial-gradient(circle at top, #1e293b 0%, #020b1a 100%);
         }
 
         .hero h1 {
-            font-size: clamp(40px, 8vw, 64px);
+            font-size: clamp(40px, 8vw, 72px);
             margin-bottom: 20px;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
             font-weight: 800;
         }
 
         .hero p {
             font-size: 20px;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 40px;
         }
 
         .hero button {
-            padding: 16px 40px;
+            padding: 18px 45px;
             border: none;
             background: var(--primary);
             color: #000;
             font-size: 16px;
             font-weight: 700;
-            border-radius: 8px;
+            border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
@@ -87,86 +87,94 @@
 
         .hero button:hover {
             background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 234, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 234, 255, 0.3);
         }
 
         /* SECTIONS GENERAL */
         section {
             padding: 100px 20px;
             text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         h2 {
             font-size: 36px;
             margin-bottom: 60px;
             font-weight: 700;
+            letter-spacing: -1px;
         }
 
-        /* SERVICES */
+        /* SERVICES GRID */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
         .service-box {
-            display: inline-block;
-            vertical-align: top;
-            width: 280px;
             background: var(--card-bg);
-            margin: 15px;
-            padding: 40px 30px;
-            border-radius: 16px;
+            padding: 45px 30px;
+            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
+            text-align: left;
         }
 
         .service-box:hover {
-            transform: translateY(-12px);
-            background: #1f2937;
+            transform: translateY(-10px);
             border-color: var(--primary);
+            background: #1f2937;
         }
 
         .service-box h3 {
             color: var(--primary);
-            margin-top: 0;
-            font-size: 20px;
+            margin: 0 0 15px 0;
+            font-size: 22px;
         }
 
         .service-box p {
             font-size: 15px;
             color: var(--text-muted);
+            margin: 0;
         }
 
         /* GALLERY SECTION */
         .gallery {
             background: var(--bg-dark);
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .gallery-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
         }
 
         .gallery-item {
-            width: 350px;
             height: 250px;
             background: #1e293b;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             position: relative;
             cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .gallery-overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            inset: 0;
             background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            padding: 20px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             text-align: left;
             opacity: 0;
-            transition: 0.3s;
+            transition: 0.4s;
         }
 
         .gallery-item:hover .gallery-overlay {
@@ -174,20 +182,21 @@
         }
 
         /* PRICING */
-        .pricing {
+        .pricing-section {
             background: var(--bg-navy);
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .price-box {
-            display: inline-block;
-            vertical-align: top;
-            width: 300px;
             background: var(--card-bg);
-            margin: 15px;
-            padding: 45px 30px;
-            border-radius: 20px;
+            padding: 50px 30px;
+            border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .featured-badge {
@@ -196,35 +205,35 @@
             left: 50%;
             transform: translateX(-50%);
             background: var(--primary);
-            color: black;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
+            color: #000;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 11px;
             font-weight: 800;
+            text-transform: uppercase;
         }
 
         .price {
-            font-size: 42px;
+            font-size: 48px;
             font-weight: 800;
             margin: 20px 0;
         }
 
         .price-box p {
             color: var(--text-muted);
-            margin: 10px 0;
+            margin: 12px 0;
             font-size: 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 10px;
+            padding-bottom: 12px;
         }
 
         .price-box button {
-            margin-top: 25px;
-            width: 100%;
-            padding: 14px;
+            margin-top: auto;
+            padding: 15px;
             background: transparent;
             color: var(--primary);
             border: 2px solid var(--primary);
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
@@ -235,36 +244,50 @@
             color: black;
         }
 
-        /* CONTACT */
+        /* CONTACT FORM */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
         input, textarea {
             width: 100%;
-            max-width: 500px;
-            padding: 14px;
-            margin: 10px 0;
+            max-width: 600px;
+            padding: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            background: #1f2937;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
             color: white;
             font-size: 16px;
             outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .contact button {
-            padding: 15px 40px;
+            margin-top: 10px;
+            padding: 16px 50px;
             background: var(--primary);
             border: none;
-            border-radius: 8px;
+            border-radius: 50px;
             font-weight: 700;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         /* FOOTER */
         footer {
             background: var(--bg-navy);
-            padding: 40px 20px;
+            padding: 60px 20px;
             color: var(--text-muted);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 14px;
+            text-align: center;
         }
 
         /* WHATSAPP */
@@ -273,18 +296,20 @@
             bottom: 30px;
             right: 30px;
             background: #25D366;
-            color: white;
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            text-decoration: none;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
             z-index: 1000;
+            transition: 0.3s;
         }
+
+        .whatsapp:hover { transform: scale(1.1); }
+        .whatsapp svg { width: 32px; height: 32px; fill: white; }
+
     </style>
 </head>
 
@@ -304,23 +329,25 @@
         <button onclick="location.href='#services'">Explore Solutions</button>
     </section>
 
-    <section id="services" class="services">
+    <section id="services">
         <h2>Expert Services</h2>
-        <div class="service-box">
-            <h3>Website Development</h3>
-            <p>High-end corporate websites and scalable e-commerce platforms designed for conversion.</p>
-        </div>
-        <div class="service-box">
-            <h3>Mobile App Development</h3>
-            <p>Custom Android and iOS applications built with seamless user experiences.</p>
-        </div>
-        <div class="service-box">
-            <h3>Software Systems</h3>
-            <p>Advanced digital infrastructure including banking software and school portals.</p>
-        </div>
-        <div class="service-box">
-            <h3>Application Vouchers</h3>
-            <p>Secure online admission vouchers and digital application platforms for institutions.</p>
+        <div class="grid-container">
+            <div class="service-box">
+                <h3>Web Development</h3>
+                <p>High-end corporate websites and scalable e-commerce platforms designed for conversion.</p>
+            </div>
+            <div class="service-box">
+                <h3>Mobile Apps</h3>
+                <p>Custom Android and iOS applications built with seamless user experiences.</p>
+            </div>
+            <div class="service-box">
+                <h3>Software Systems</h3>
+                <p>Advanced digital infrastructure including banking software and school portals.</p>
+            </div>
+            <div class="service-box">
+                <h3>App Vouchers</h3>
+                <p>Secure online admission vouchers and digital application platforms for institutions.</p>
+            </div>
         </div>
     </section>
 
@@ -328,21 +355,21 @@
         <h2>Recent Work</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ School System Preview ]</div>
+                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ School System Portal ]</div>
                 <div class="gallery-overlay">
                     <h4 style="margin:0">SMS Portal</h4>
                     <p style="margin:5px 0 0; font-size:12px; color: var(--primary)">Management System</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ E-Commerce Preview ]</div>
+                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ Global Store Platform ]</div>
                 <div class="gallery-overlay">
                     <h4 style="margin:0">Global Store</h4>
                     <p style="margin:5px 0 0; font-size:12px; color: var(--primary)">Web Development</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ Mobile App Preview ]</div>
+                <div style="background: #1a2333; height: 100%; display: flex; align-items: center; justify-content: center; color: #334155;">[ FinTech Mobile App ]</div>
                 <div class="gallery-overlay">
                     <h4 style="margin:0">FinTech App</h4>
                     <p style="margin:5px 0 0; font-size:12px; color: var(--primary)">iOS & Android</p>
@@ -351,45 +378,51 @@
         </div>
     </section>
 
-    <section id="pricing" class="pricing">
-        <h2>Strategic Pricing</h2>
-        <div class="price-box">
-            <h3>Basic Website</h3>
-            <div class="price">₵800</div>
-            <p>Business Focused</p>
-            <p>Responsive Layout</p>
-            <p>Standard Contact Form</p>
-            <button>Get Started</button>
-        </div>
-        <div class="price-box" style="border-color: var(--primary);">
-            <div class="featured-badge">MOST POPULAR</div>
-            <h3>Professional</h3>
-            <div class="price">₵1500</div>
-            <p>Modern Creative Design</p>
-            <p>Custom Admin Dashboard</p>
-            <p>Full Database Integration</p>
-            <button style="background: var(--primary); color: black;">Get Started</button>
-        </div>
-        <div class="price-box">
-            <h3>Mobile App</h3>
-            <div class="price">₵3000+</div>
-            <p>Native/Cross-platform</p>
-            <p>Advanced API Integration</p>
-            <p>Store Deployment Support</p>
-            <button>Get Started</button>
-        </div>
-    </section>
+    <div class="pricing-section">
+        <section id="pricing">
+            <h2>Strategic Pricing</h2>
+            <div class="grid-container">
+                <div class="price-box">
+                    <h3>Basic Website</h3>
+                    <div class="price">₵800</div>
+                    <p>Business Focused</p>
+                    <p>Responsive Layout</p>
+                    <p>Standard Contact Form</p>
+                    <button>Get Started</button>
+                </div>
+                <div class="price-box" style="border-color: var(--primary);">
+                    <div class="featured-badge">MOST POPULAR</div>
+                    <h3>Professional</h3>
+                    <div class="price">₵1500</div>
+                    <p>Modern Creative Design</p>
+                    <p>Custom Admin Dashboard</p>
+                    <p>Full Database Integration</p>
+                    <button style="background: var(--primary); color: black;">Get Started</button>
+                </div>
+                <div class="price-box">
+                    <h3>Mobile App</h3>
+                    <div class="price">₵3000+</div>
+                    <p>Native/Cross-platform</p>
+                    <p>Advanced API Integration</p>
+                    <p>Store Deployment Support</p>
+                    <button>Get Started</button>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <section id="contact" class="contact">
         <h2>Start Your Project</h2>
         <form>
-            <input type="text" placeholder="Full Name" required><br>
-            <input type="email" placeholder="Email Address" required><br>
-            <textarea rows="5" placeholder="Provide a brief overview of your project requirements"></textarea><br>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea rows="5" placeholder="Provide a brief overview of your project requirements"></textarea>
             <button type="submit">Submit Request</button>
         </form>
-        <p><strong>Email:</strong> nhyirabagenesis@gmail.com</p>
-        <p><strong>Phone:</strong> 0246063398</p>
+        <div style="margin-top: 40px;">
+            <p><strong>Email:</strong> nhyirabagenesis@gmail.com</p>
+            <p><strong>Phone:</strong> 0246063398</p>
+        </div>
     </section>
 
     <footer>
@@ -397,7 +430,7 @@
     </footer>
 
     <a class="whatsapp" href="https://wa.me/233246063398" target="_blank">
-        <svg style="width:30px; height:30px" fill="currentColor" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.4 2.4-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.3 5.7 23.7 9.1 31.7 11.7 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.4 2.4-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.3 5.7 23.7 9.1 31.7 11.7 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </a>
 
 </body>
