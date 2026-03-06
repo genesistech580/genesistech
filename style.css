@@ -1,42 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Genesis Tech</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genesis Tech | Digital Solutions</title>
 
 <style>
-
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
+/* Global Refinements */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #020b1a;
+    color: white;
+    line-height: 1.6;
 }
 
 /* Navigation Bar */
-nav{
-    background:#020b1a;
-    padding:15px 0;
-    text-align:center;
+nav {
+    background: #020b1a;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 30px;
-    font-size:18px;
-    font-weight:500;
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin: 0 25px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 
-nav a:hover{
-    color:#00e0ff;
+nav a:hover {
+    color: #00e0ff;
 }
 
 /* Header Section */
-header{
-    text-align:center;
-    padding:100px 20px;
-    background:#0b1b36;
-    color:white;
+header {
+    text-align: center;
+    padding: 140px 20px;
+    background: linear-gradient(180deg, #0b1b36 0%, #020b1a 100%);
 }
 
+header h1 {
+    font-size: 3rem;
+    margin: 0 0 15px 0;
+    letter-spacing: -1px;
+    font-weight: 800;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto 40px auto; /* Increased bottom margin for the button */
+    font-weight: 400;
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    background: #00e0ff;
+    color: #020b1a;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 224, 255, 0.2);
+}
+
+.cta-button:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 224, 255, 0.4);
+}
 </style>
 
 </head>
@@ -44,15 +85,16 @@ header{
 <body>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">Services</a>
-<a href="#">Pricing</a>
-<a href="#">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Pricing</a>
+    <a href="#">Contact</a>
 </nav>
 
 <header>
-<h1>Genesis Tech</h1>
-<p>Building Powerful Websites, Mobile Apps & Digital Solutions</p>
+    <h1>Genesis Tech</h1>
+    <p>Building Powerful Websites, Mobile Apps & Digital Solutions</p>
+    <a href="#contact" class="cta-button">Get Started</a>
 </header>
 
 </body>
